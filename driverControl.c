@@ -18,7 +18,7 @@ task drivingControl(){
 			motor[port3] = vexRT(Ch3);
 			motor[port4] = vexRT(Ch2);
 			motor[port5] = vexRT(Ch2);
-			if(vexRT[Btn5D]==1)
+			if(vexRT[Btn6D]==1)
 			{
 				motor[port2] =-127;
 				motor[port3] = 127;
@@ -26,7 +26,7 @@ task drivingControl(){
 				motor[port5] = -127;
 			}
 
-			if(vexRT[Btn6D]==1){
+			if(vexRT[Btn5D]==1){
 				motor[port2] = 127;
 				motor[port3] = -127;
 				motor[port4] = -127;
@@ -58,11 +58,11 @@ task drivingControl(){
 		//begin arm code
 		if(vexRT[Btn5U]==1){
 			motor[arm1]=-127;
-			motor[arm2]=-127;
+			motor[arm2]=127;
 			motor[arm3]=-127;
 			}if(vexRT[Btn6U]==1){
 			motor[arm1]=-63;
-			motor[arm2]=-63;
+			motor[arm2]=63;
 			motor[arm3]=-63;
 			}else if(vexRT[Btn5U]==0&&vexRT[Btn6U]==0){
 			motor[arm1]=0;
