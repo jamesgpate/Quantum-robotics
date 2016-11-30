@@ -14,95 +14,13 @@
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
 #include "AutonomousPrograms.c";
-void waitForPress()
-{
-	while(nLCDButtons == 0){}
-	wait1Msec(5);
-}
-void waitForRelease()
-{
-	while(nLCDButtons != 0){}
-	wait1Msec(5);
-}
-int count = 0;
-const short leftButton = 1;
-const short centerButton = 2;
-const short rightButton = 4;
+#include "LCDprogram.c";
+
+
 
 void pre_auton()
 {
-	bStopTasksBetweenModes = true;
-
-	clearLCDLine(0);
-	clearLCDLine(1);
-	while(nLCDButtons != centerButton)
-	{
-		switch(count){
-		case 0:
-			displayLCDCenteredString(0, "Autonomous 1");
-			displayLCDCenteredString(1, "<         Enter        >");
-			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
-				waitForRelease();
-				count = 3;
-			}
-			else if(nLCDButtons == rightButton)
-			{
-				waitForRelease();
-				count++;
-			}
-			break;
-		case 1:
-			displayLCDCenteredString(0, "Autonomous 2");
-			displayLCDCenteredString(1, "<         Enter        >");
-			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
-				waitForRelease();
-				count--;
-			}
-			else if(nLCDButtons == rightButton)
-			{
-				waitForRelease();
-				count++;
-			}
-			break;
-		case 2:
-			displayLCDCenteredString(0, "Autonomous 3");
-			displayLCDCenteredString(1, "<         Enter        >");
-			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
-				waitForRelease();
-				count--;
-			}
-			else if(nLCDButtons == rightButton)
-			{
-				waitForRelease();
-				count++;
-			}
-			break;
-		case 3:
-			displayLCDCenteredString(0, "Autonomous 4");
-			displayLCDCenteredString(1, "<         Enter        >");
-			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
-				waitForRelease();
-				count--;
-			}
-			else if(nLCDButtons == rightButton)
-			{
-				waitForRelease();
-				count = 0;
-			}
-			break;
-		default:
-			count = 0;
-			break;
-		}
-	}
+  startTask(runAutonLCD);
 }
 task autonomous()
 {
@@ -162,7 +80,7 @@ task usercontrol()
 		sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
 		displayNextLCDString(mainBattery);
 		displayLCDString(1, 0, "Backup: ");
-		sprintf(backupBattery, "%1.2f%c", expVoltage/70, 'V');
+		sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000, 'V');
 		displayNextLCDString(backupBattery);
 		//end batt voltage code
 		//begin arm code
