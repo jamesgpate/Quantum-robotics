@@ -13,6 +13,7 @@
 #pragma platform(VEX2)
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
+#include "AutonomousPrograms.c";
 void waitForPress()
 {
 	while(nLCDButtons == 0){}
@@ -105,54 +106,7 @@ void pre_auton()
 }
 task autonomous()
 {
-	switch(count){
-	case 0:
-		displayLCDCenteredString(0, "Autonomous 1");
-		displayLCDCenteredString(1, "is running!");
-		motor[frontRight] = -127;
-		motor[backRight] =  -127;
-		motor[frontLeft] = 127;
-		motor[backLeft] =  127;
-		wait1Msec(350);
-		motor[frontRight] = 127;
-		motor[backRight] =  127;
-		motor[frontLeft] = -127;
-		motor[backLeft] =  -127;
-		wait1Msec(2);
-		motor[frontRight] = 127;
-		motor[backRight] = 127;
-		motor[frontLeft] = 127;
-		motor[backLeft] =  127;
-		break;
-	case 1:
-		displayLCDCenteredString(0, "Autonomous 2");
-		displayLCDCenteredString(1, "is running!");
-		motor[frontRight] = 127;
-		motor[backRight] =  127;
-		motor[frontLeft] = -127;
-		motor[backLeft] =  -127;
-		wait1Msec(350);
-		motor[frontRight] = -127;
-		motor[backRight] =  -127;
-		motor[frontLeft] = 127;
-		motor[backLeft] =  127;
-		wait1Msec(2);
-		motor[frontRight] = 127;
-		motor[backRight] = 127;
-		motor[frontLeft] = 127;
-		motor[backLeft] =  127;
-		break;
-	case 2:
-		displayLCDCenteredString(0, "Autonomous 3");
-		displayLCDCenteredString(1, "is running!");
-		break;
-	case 3:
-		displayLCDCenteredString(0, "Autonomous 4");
-		displayLCDCenteredString(1, "is running!");
-	default:
-		displayLCDCenteredString(0, "No valid choice");
-		displayLCDCenteredString(1, "was made!");
-	}
+	callAutonomous(count);
 }
 task usercontrol()
 {
@@ -163,8 +117,8 @@ task usercontrol()
 	bool td = true;
 	while (true)
 	{
-		p1=SensorValue[pot1]/15.45283018867925;
-		p2=SensorValue[pot2]/15.45283018867925;
+		//p1=SensorValue[pot1]/15.45283018867925;
+		//p2=SensorValue[pot2]/15.45283018867925;
 		//Driving code
 		if(vexRT[Btn7U]==1){
 			td=!td;
