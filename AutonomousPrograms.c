@@ -4,16 +4,21 @@ void callAutonomous(int count){
 	case 0:
 		displayLCDCenteredString(0, "Autonomous 1");
 		displayLCDCenteredString(1, "is running!");
+			//
 		motor[frontRight] = -127;
 		motor[backRight] =  -127;
 		motor[frontLeft] = 127;
 		motor[backLeft] =  127;
+			//
 		wait1Msec(350);
+			//
 		motor[frontRight] = 127;
 		motor[backRight] =  127;
 		motor[frontLeft] = -127;
 		motor[backLeft] =  -127;
+			//
 		wait1Msec(2);
+			//
 		motor[frontRight] = 127;
 		motor[backRight] = 127;
 		motor[frontLeft] = 127;
@@ -22,16 +27,21 @@ void callAutonomous(int count){
 	case 1:
 		displayLCDCenteredString(0, "Autonomous 2");
 		displayLCDCenteredString(1, "is running!");
+			//
 		motor[frontRight] = 127;
 		motor[backRight] =  127;
 		motor[frontLeft] = -127;
 		motor[backLeft] =  -127;
+			//
 		wait1Msec(350);
+			//
 		motor[frontRight] = -127;
 		motor[backRight] =  -127;
 		motor[frontLeft] = 127;
 		motor[backLeft] =  127;
+			//
 		wait1Msec(2);
+			//
 		motor[frontRight] = 127;
 		motor[backRight] = 127;
 		motor[frontLeft] = 127;
