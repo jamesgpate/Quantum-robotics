@@ -1,37 +1,34 @@
 #include "TheUltimateFile.c";
-void waitForPress()
-{
+void waitForPress(){
 	while(nLCDButtons == 0){}
 	wait1Msec(5);
 }
-void waitForRelease()
-{
+void waitForRelease(){
 	while(nLCDButtons != 0){}
 	wait1Msec(5);
 }
+//
 const short leftButton = 1;
 const short centerButton = 2;
 const short rightButton = 4;
+//
 int count = 0;
 task runAutonLCD(){
 	bStopTasksBetweenModes = true;
-
 	clearLCDLine(0);
 	clearLCDLine(1);
-	while(nLCDButtons != centerButton)
-	{
+	//
+	while(nLCDButtons != centerButton){
 		switch(count){
 		case 0:
 			displayLCDCenteredString(0, "Autonomous 1");
 			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
+			if(nLCDButtons == leftButton){
 				waitForRelease();
 				count = 3;
 			}
-			else if(nLCDButtons == rightButton)
-			{
+			else if(nLCDButtons == rightButton){
 				waitForRelease();
 				count++;
 			}
@@ -40,13 +37,11 @@ task runAutonLCD(){
 			displayLCDCenteredString(0, "Autonomous 2");
 			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
+			if(nLCDButtons == leftButton){
 				waitForRelease();
 				count--;
 			}
-			else if(nLCDButtons == rightButton)
-			{
+			else if(nLCDButtons == rightButton){
 				waitForRelease();
 				count++;
 			}
@@ -55,13 +50,11 @@ task runAutonLCD(){
 			displayLCDCenteredString(0, "Autonomous 3");
 			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
+			if(nLCDButtons == leftButton){
 				waitForRelease();
 				count--;
 			}
-			else if(nLCDButtons == rightButton)
-			{
+			else if(nLCDButtons == rightButton){
 				waitForRelease();
 				count++;
 			}
@@ -70,13 +63,11 @@ task runAutonLCD(){
 			displayLCDCenteredString(0, "Autonomous 4");
 			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
-			if(nLCDButtons == leftButton)
-			{
+			if(nLCDButtons == leftButton){
 				waitForRelease();
 				count--;
 			}
-			else if(nLCDButtons == rightButton)
-			{
+			else if(nLCDButtons == rightButton){
 				waitForRelease();
 				count = 0;
 			}
