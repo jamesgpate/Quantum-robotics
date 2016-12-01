@@ -40,10 +40,10 @@ task drivingControl(){
 			else X1 = 0;
 			if(abs(vexRT[Ch1]) > threshold)	X2 = vexRT[Ch1];
 			else X2 = 0;
-			motor[frontRight] = Y1 - X2 - X1;
-			motor[backRight] =  Y1 - X2 + X1;
-			motor[frontLeft] = Y1 + X2 + X1;
-			motor[backLeft] =  Y1 + X2 - X1;
+			motor[frontRight] = Y1 + X2 - X1;
+			motor[backRight] =  Y1 + X2 + X1;
+			motor[frontLeft] = Y1 - X2 + X1;
+			motor[backLeft] =  Y1 - X2 - X1;
 		}//end driving code
 		//begin battery voltage code
 		clearLCDLine(0);
