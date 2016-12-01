@@ -19,7 +19,7 @@ task drivingControl(){
 			motor[port5] = vexRT(Ch2);
 			if(vexRT[Btn5D]==1)
 			{
-				motor[port2] =-127;
+				motor[port2] = -127;
 				motor[port3] = 127;
 				motor[port4] = 127;
 				motor[port5] = -127;
