@@ -1,4 +1,4 @@
-
+#include "TheUltimateFile.c";
 task drivingControl(){
 	bLCDBacklight = true;
 	string mainBattery, backupBattery;
@@ -60,15 +60,20 @@ task drivingControl(){
 			motor[arm1]=-127;
 			motor[arm2]=-127;
 			motor[arm3]=-127;
-			}if(vexRT[Btn6U]==1){
+		}if(vexRT[Btn6U]==1){
 			motor[arm1]=-63;
 			motor[arm2]=-63;
 			motor[arm3]=-63;
-			}else if(vexRT[Btn5U]==0&&vexRT[Btn6U]==0){
+		}else if(vexRT[Btn5U]==0&&vexRT[Btn6U]==0){
 			motor[arm1]=0;
 			motor[arm2]=0;
 			motor[arm3]=0;
 		}
 		//end arm code
+		//begin LED code
+		if(SensorValue[limit1]==1)SensorValue[yellowLED1]=true;
+		else SensorValue[yellowLED1]=false;
+		if(SensorValue[limit2]==1)SensorValue[yellowLED2]=true;
+		else SensorValue[yellowLED2]=false;
 	}
 }
