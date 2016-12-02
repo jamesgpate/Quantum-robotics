@@ -3,7 +3,8 @@ task drivingControl(){
 	bLCDBacklight = true;
 	string mainBattery, backupBattery;
 	int X1=0,X2=0,Y1=0,threshold=10;
-	int p1, p2;
+	int p1, p2, tick, count2=0;
+	string exVol;
 	bool td = true;
 	while (true)
 	{
@@ -11,7 +12,9 @@ task drivingControl(){
 		//p2=SensorValue[pot2]/15.45283018867925;
 		//Driving code
 		if(vexRT[Btn7U]==1){
-			td=!td;
+			wait1Msec(500);
+			if(vexRT[Btn7U]==1)
+				td=!td;
 		}
 		if(td==true){
 			motor[port2] = vexRT(Ch3);
@@ -45,16 +48,57 @@ task drivingControl(){
 			motor[frontLeft] = Y1 - X2 + X1;
 			motor[backLeft] =  Y1 - X2 - X1;
 		}//end driving code
-		//begin battery voltage code
-		clearLCDLine(0);
-		clearLCDLine(1);
-		displayLCDString(0, 0, "Primary: ");
-		sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
-		displayNextLCDString(mainBattery);
-		displayLCDString(1, 0, "Backup: ");
-		sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000, 'V');
-		displayNextLCDString(backupBattery);
-		//end batt voltage code
+		//begin LCD code
+		if(count2==0){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0, 0, "Primary: ");
+			sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
+			displayNextLCDString(mainBattery);
+			displayLCDString(1, 0, "Backup: ");
+			sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000, 'V');
+			displayNextLCDString(backupBattery);
+		}else if(count2==1){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
+			displayLCDString(0,0,"Port2:");
+			displayLCDNumber(0,7,motor[port2]);
+			displayLCDString(1,0,"Port3:");
+			displayLCDNumber(1,7,motor[port2]);
+		}else if(count2==2){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port4:");
+			displayLCDNumber(0,7,motor[port4]);
+			displayLCDString(1,0,"Port5:");
+			displayLCDNumber(1,7,motor[port5]);
+		}else if(count2==3){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port6:");
+			displayLCDNumber(0,7,motor[port6]);
+			displayLCDString(1,0,"Port7:");
+			displayLCDNumber(1,7,motor[port7]);
+		}else if(count2==4){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port8:");
+			displayLCDNumber(0,7,motor[port8]);
+			displayLCDString(1,0,"Port9:");
+			displayLCDNumber(0,7,motor[port9]);
+		}else if(count2==5){
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Expander batt:");
+			displayLCDNumber(1,0,expVoltage/70);
+		}
+		tick++;
+		if(tick>=60000){
+			tick=0;
+			count2++;
+		}
+		//end LCD code
 		//begin arm code
 		if(vexRT[Btn5U]==1){
 			motor[arm1]=-127;
