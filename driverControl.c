@@ -61,7 +61,6 @@ task drivingControl(){
 		}else if(count2==1){
 			clearLCDLine(0);
 			clearLCDLine(1);
-			sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
 			displayLCDString(0,0,"Port2:");
 			displayLCDNumber(0,7,motor[port2]);
 			displayLCDString(1,0,"Port3:");
@@ -94,7 +93,7 @@ task drivingControl(){
 			displayLCDNumber(1,0,expVoltage/70);
 		}
 		tick++;
-		if(tick>=60000){
+		if(tick>=10000){
 			tick=0;
 			count2++;
 		}
