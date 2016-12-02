@@ -23,17 +23,17 @@ task drivingControl(){
 			motor[port5] = vexRT(Ch2);
 			if(vexRT[Btn5D]==1)
 			{
-				motor[port2] = -127;
-				motor[port3] = 127;
-				motor[port4] = 127;
-				motor[port5] = -127;
-			}
-
-			if(vexRT[Btn6D]==1){
 				motor[port2] = 127;
 				motor[port3] = -127;
 				motor[port4] = -127;
 				motor[port5] = 127;
+			}
+
+			if(vexRT[Btn6D]==1){
+				motor[port2] = -127;
+				motor[port3] = 127;
+				motor[port4] = 127;
+				motor[port5] = -127;
 			}
 		}
 		if(td==false){
@@ -97,6 +97,7 @@ task drivingControl(){
 			tick=0;
 			count2++;
 		}
+		if(count2==5) count2=0;
 		//end LCD code
 		//begin arm code
 		if(vexRT[Btn5U]==1){
