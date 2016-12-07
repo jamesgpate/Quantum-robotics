@@ -24,7 +24,6 @@
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
 #include "AutonomousPrograms.c";
-#include "LCDprogram.c";
 #include "driverControl.c";
 
 void waitForPress(){
@@ -51,7 +50,8 @@ void pre_auton()//select auton program
 		switch(count){
 		case 0:
 			displayLCDCenteredString(0, "Autonomous 1");
-			displayLCDCenteredString(1, "<         Enter        >");
+			wait1Msec(500);
+			displayLCDCenteredString(0, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
@@ -64,7 +64,8 @@ void pre_auton()//select auton program
 			break;
 		case 1:
 			displayLCDCenteredString(0, "Autonomous 2");
-			displayLCDCenteredString(1, "<         Enter        >");
+			wait1Msec(500);
+			displayLCDCenteredString(0, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
@@ -77,7 +78,8 @@ void pre_auton()//select auton program
 			break;
 		case 2:
 			displayLCDCenteredString(0, "Autonomous 3");
-			displayLCDCenteredString(1, "<         Enter        >");
+			wait1Msec(500);
+			displayLCDCenteredString(0, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
@@ -90,7 +92,8 @@ void pre_auton()//select auton program
 			break;
 		case 3:
 			displayLCDCenteredString(0, "Autonomous 4");
-			displayLCDCenteredString(1, "<         Enter        >");
+			wait1Msec(500);
+			displayLCDCenteredString(0, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
