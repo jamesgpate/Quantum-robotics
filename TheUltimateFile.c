@@ -25,6 +25,7 @@
 #include "Vex_Competition_Includes.c"
 #include "AutonomousPrograms.c";
 #include "driverControl.c";
+#include "CommandsForControl.c";
 
 void waitForPress(){
 	while(nLCDButtons == 0){}
