@@ -3,7 +3,7 @@
 void callAutonomous(int count){
 	switch(count){
 	case 0:
-		displayLCDCenteredString(0, "Autonomous 1");
+		displayLCDCenteredString(0, "Turn Left");
 		displayLCDCenteredString(1, "is running!");
 		//
 		goForward(350);
@@ -13,7 +13,7 @@ void callAutonomous(int count){
 		goForward(3500);
 		break;
 	case 1:
-		displayLCDCenteredString(0, "Autonomous 2");
+		displayLCDCenteredString(0, "Turn Right");
 		displayLCDCenteredString(1, "is running!");
 		//
 		goForward(350);
@@ -23,7 +23,7 @@ void callAutonomous(int count){
 		goForward(3500);
 		break;
 	case 2:
-		displayLCDCenteredString(0, "Autonomous 3");
+		displayLCDCenteredString(0, "Fence Left");
 		displayLCDCenteredString(1, "is running!");
 		goForward(500);
 		//
@@ -32,7 +32,7 @@ void callAutonomous(int count){
 		goForward(4000);
 		break;
 	case 3:
-		displayLCDCenteredString(0, "Autonomous 4");
+		displayLCDCenteredString(0, "Fence Right");
 		displayLCDCenteredString(1, "is running!");
 		goForward(500);
 		//
