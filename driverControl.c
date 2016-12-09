@@ -56,7 +56,7 @@ task drivingControl(){
 			sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
 			displayNextLCDString(mainBattery);
 			displayLCDString(1, 0, "Backup: ");
-			sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000, 'V');
+			sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000.0, 'V');
 			displayNextLCDString(backupBattery);
 		}else if(count2==1){
 			clearLCDLine(0);
@@ -90,14 +90,15 @@ task drivingControl(){
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Expander batt:");
-			displayLCDNumber(1,0,expVoltage/70);
+			int numVolt = expVoltage/70;
+			displayLCDNumber(1,0,numVolt);
 		}
 		tick++;
 		if(tick>=10000){
 			tick=0;
 			count2++;
 		}
-		if(count2==5) count2=0;
+		if(count2==6) count2=0;
 		//end LCD code
 		//begin arm code
 		if(vexRT[Btn5U]==1){
