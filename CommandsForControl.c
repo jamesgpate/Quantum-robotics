@@ -1,9 +1,9 @@
 #include "TheUltimateFile.c";
 void goForward(int timeInMS){
 	motor[frontRight] = -127;
-	motor[backRight] =  -127;
+	motor[backRight] =  127;
 	motor[frontLeft] = 127;
-	motor[backLeft] =  127;
+	motor[backLeft] =  -127;
 	wait1Msec(timeInMS);
 	motor[frontRight] = 0;
 	motor[backRight] =  0;
@@ -12,9 +12,9 @@ void goForward(int timeInMS){
 }
 void goBackwards(int timeInMS){
 	motor[frontRight] = 127;
-	motor[backRight] = 127;
+	motor[backRight] = -127;
 	motor[frontLeft] = -127;
-	motor[backLeft] = -127;
+	motor[backLeft] = 127;
 	wait1Msec(timeInMS);
 	motor[frontRight] = 0;
 	motor[backRight] =  0;
@@ -22,10 +22,10 @@ void goBackwards(int timeInMS){
 	motor[backLeft] =  0;
 }
 void turnLeft(int timeInMS){
-	motor[frontRight] = 127;
-	motor[backRight] =  127;
-	motor[frontLeft] = -127;
-	motor[backLeft] =  -127;
+	motor[frontRight] = -127;
+	motor[backRight] = -127;
+	motor[frontLeft] = 127;
+	motor[backLeft] = 127;
 	wait1Msec(timeInMS);
 	motor[frontRight] = 0;
 	motor[backRight] =  0;
@@ -33,10 +33,10 @@ void turnLeft(int timeInMS){
 	motor[backLeft] =  0;
 }
 void turnRight(int timeInMS){
-	motor[frontRight] = -127;
-	motor[backRight] = -127;
-	motor[frontLeft] = 127;
-	motor[backLeft] = 127;
+	motor[frontRight] = 127;
+	motor[backRight] = 127;
+	motor[frontLeft] = -127;
+	motor[backLeft] = -127;
 	wait1Msec(timeInMS);
 	motor[frontRight] = 0;
 	motor[backRight] =  0;

@@ -51,8 +51,7 @@ void pre_auton()//select auton program
 		switch(count){
 		case 0:
 			displayLCDCenteredString(0, "Autonomous 1");
-			wait1Msec(500);
-			displayLCDCenteredString(0, "<         Enter        >");
+			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
@@ -65,8 +64,7 @@ void pre_auton()//select auton program
 			break;
 		case 1:
 			displayLCDCenteredString(0, "Autonomous 2");
-			wait1Msec(500);
-			displayLCDCenteredString(0, "<         Enter        >");
+			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
@@ -80,7 +78,7 @@ void pre_auton()//select auton program
 		case 2:
 			displayLCDCenteredString(0, "Autonomous 3");
 			wait1Msec(500);
-			displayLCDCenteredString(0, "<         Enter        >");
+			displayLCDCenteredString(1, "<         Enter        >");
 			waitForPress();
 			if(nLCDButtons == leftButton){
 				waitForRelease();
