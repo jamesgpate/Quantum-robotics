@@ -124,5 +124,7 @@ task drivingControl(){
 		if(SensorValue[limit2]==1)SensorValue[yellowLED2]=true;
 		else SensorValue[yellowLED2]=false;
 		//end LED code
+		if(vexRT[Btn8R]==1) motor[hook]=127;
+		else motor[hook]=0;
 	}
 }
