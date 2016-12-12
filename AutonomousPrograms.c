@@ -1,4 +1,5 @@
 #include "TheUltimateFile.c";
+#include "config.h"
 #include "CommandsForControl.c";
 void callAutonomous(int count){
 	switch(count){

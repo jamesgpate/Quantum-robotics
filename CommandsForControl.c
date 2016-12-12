@@ -1,4 +1,5 @@
 #include "TheUltimateFile.c";
+#include "config.h"
 void goForward(int timeInMS){
 	motor[frontRight] = -127;
 	motor[backRight] =  127;

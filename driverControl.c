@@ -1,15 +1,18 @@
 #include "TheUltimateFile.c";
+#include "config.h"
 task drivingControl(){
 	bLCDBacklight = true;
 	string mainBattery, backupBattery;
-	int X1=0,X2=0,Y1=0,threshold=10;
+	int X1=0,X2=0,Y1=0,threshold=10,hookRotation = 0;
 	int p1, p2, tick, count2=0;
 	string exVol;
 	bool td = true;
+	nMotorEncoder[hook]=0;
 	while (true)
 	{
 		//p1=SensorValue[pot1]/15.45283018867925;
 		//p2=SensorValue[pot2]/15.45283018867925;
+		hookRotation = nMotorEncoder[hook]/672.2;
 		//Driving code
 		if(vexRT[Btn7U]==1){
 			wait1Msec(500);
@@ -109,7 +112,7 @@ task drivingControl(){
 			motor[arm1]=-63;
 			motor[arm2]=-63;
 			motor[arm3]=-63;
-		}else if(vexRT[Btn5U]==0&&vexRT[Btn6U]==0){
+		}else if((vexRT[Btn5U]==0&&vexRT[Btn6U]==0)){
 			motor[arm1]=0;
 			motor[arm2]=0;
 			motor[arm3]=0;
@@ -120,5 +123,6 @@ task drivingControl(){
 		else SensorValue[yellowLED1]=false;
 		if(SensorValue[limit2]==1)SensorValue[yellowLED2]=true;
 		else SensorValue[yellowLED2]=false;
+		//end LED code
 	}
 }
