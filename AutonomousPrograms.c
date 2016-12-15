@@ -49,7 +49,16 @@ void callAutonomous(int count){
 		//
 		goForward(4000);
 	default:
-		displayLCDCenteredString(0, "No valid choice");
-		displayLCDCenteredString(1, "was made!");
+		displayLCDCenteredString(0, "Turn Left");
+		displayLCDCenteredString(1, "is running!");
+		//
+		motor[hook]=127;
+		wait1Msec(100);
+		goForward(350);
+		//
+		turnLeft(150);
+		//
+		goForward(3500);
+		break;
 	}
 }

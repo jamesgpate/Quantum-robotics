@@ -14,17 +14,17 @@ task drivingControl(){
 		//p2=SensorValue[pot2]/15.45283018867925;
 		hookRotation = nMotorEncoder[hook]/672.2;
 		//Driving code
-		if(vexRT[Btn7U]==1){
-			wait1Msec(500);
+		if(vexRT[Btn7U]==1){//changing between tank and standard
+			wait1Msec(300);
 			if(vexRT[Btn7U]==1)
 				td=!td;
 		}
-		if(td==true){
-			motor[port2] = vexRT(Ch3);
-			motor[port3] = vexRT(Ch3);
-			motor[port4] = vexRT(Ch2);
-			motor[port5] = vexRT(Ch2);
-			if(vexRT[Btn5D]==1)
+		if(td==true){//tank drive is true
+			motor[port2] = (vexRT(Ch3)>threshold)?vexRT(Ch3):0;
+			motor[port3] = (vexRT(Ch3)>threshold)?vexRT(Ch3):0;
+			motor[port4] = (vexRT(Ch2)>threshold)?vexRT(Ch2):0;
+			motor[port5] = (vexRT(Ch2)>threshold)?vexRT(Ch2):0;
+			if(vexRT[Btn5D]==1)//move left
 			{
 				motor[port2] = 127;
 				motor[port3] = -127;
@@ -32,14 +32,14 @@ task drivingControl(){
 				motor[port5] = 127;
 			}
 
-			if(vexRT[Btn6D]==1){
+			if(vexRT[Btn6D]==1){//move right
 				motor[port2] = -127;
 				motor[port3] = 127;
 				motor[port4] = 127;
 				motor[port5] = -127;
 			}
 		}
-		if(td==false){
+		if(td==false){//standard drive
 			if(abs(vexRT[Ch3]) > threshold) Y1 = vexRT[Ch3];
 			else Y1 = 0;
 			if(abs(vexRT[Ch4]) > threshold)	X1 = vexRT[Ch4];
@@ -52,7 +52,7 @@ task drivingControl(){
 			motor[backLeft] =  Y1 - X2 - X1;
 		}//end driving code
 		//begin LCD code
-		if(count2==0){
+		if(count2==0){//display battery level
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0, 0, "Primary: ");
@@ -61,42 +61,42 @@ task drivingControl(){
 			displayLCDString(1, 0, "Backup: ");
 			sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000.0, 'V');
 			displayNextLCDString(backupBattery);
-		}else if(count2==1){
+		}else if(count2==1){//disp ports 2 and 3
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Port2:");
 			displayLCDNumber(0,7,motor[port2]);
 			displayLCDString(1,0,"Port3:");
 			displayLCDNumber(1,7,motor[port2]);
-		}else if(count2==2){
+		}else if(count2==2){//disp ports 4 and 5
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Port4:");
 			displayLCDNumber(0,7,motor[port4]);
 			displayLCDString(1,0,"Port5:");
 			displayLCDNumber(1,7,motor[port5]);
-		}else if(count2==3){
+		}else if(count2==3){//disp ports 6 and 7
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Port6:");
 			displayLCDNumber(0,7,motor[port6]);
 			displayLCDString(1,0,"Port7:");
 			displayLCDNumber(1,7,motor[port7]);
-		}else if(count2==4){
+		}else if(count2==4){//disp ports 8 and 9
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Port8:");
 			displayLCDNumber(0,7,motor[port8]);
 			displayLCDString(1,0,"Port9:");
 			displayLCDNumber(0,7,motor[hook]);
-		}else if(count2==5){
+		}else if(count2==5){//disp exp batt
 			clearLCDLine(0);
 			clearLCDLine(1);
 			displayLCDString(0,0,"Expander batt:");
 			int numVolt = expVoltage/70;
 			displayLCDNumber(1,0,numVolt);
 		}
-		tick++;
+		tick++;//cycling LCD Info
 		if(tick>=10000){
 			tick=0;
 			count2++;
@@ -104,15 +104,15 @@ task drivingControl(){
 		if(count2==6) count2=0;
 		//end LCD code
 		//begin arm code
-		if(vexRT[Btn5U]==1){
+		if(vexRT[Btn5U]==1){//arm full speed
 			motor[arm1]=-127;
 			motor[arm2]=-127;
 			motor[arm3]=-127;
-		}if(vexRT[Btn6U]==1){
+		}if(vexRT[Btn6U]==1){//arm half speed
 			motor[arm1]=-63;
 			motor[arm2]=-63;
 			motor[arm3]=-63;
-		}else if((vexRT[Btn5U]==0&&vexRT[Btn6U]==0)){
+		}else if((vexRT[Btn5U]==0&&vexRT[Btn6U]==0)){//arm no speed
 			motor[arm1]=0;
 			motor[arm2]=0;
 			motor[arm3]=0;
@@ -125,6 +125,6 @@ task drivingControl(){
 		else SensorValue[yellowLED2]=false;
 		//end LED code
 		if(vexRT[Btn8R]==1) motor[hook]=127;
-		else motor[hook]=0;
+		else motor[hook]=0;//hook code
 	}
 }
