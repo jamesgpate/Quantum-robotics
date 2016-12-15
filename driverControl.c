@@ -20,10 +20,10 @@ task drivingControl(){
 				td=!td;
 		}
 		if(td==true){//tank drive is true
-			motor[port2] = (vexRT(Ch3)>threshold)?vexRT(Ch3):0;
-			motor[port3] = (vexRT(Ch3)>threshold)?vexRT(Ch3):0;
-			motor[port4] = (vexRT(Ch2)>threshold)?vexRT(Ch2):0;
-			motor[port5] = (vexRT(Ch2)>threshold)?vexRT(Ch2):0;
+			motor[port2] = (vexRT(Ch3)>threshold||vexRT(Ch3)<-threshold)?vexRT(Ch3):0;
+			motor[port3] = (vexRT(Ch3)>threshold||vexRT(Ch3)<-threshold)?vexRT(Ch3):0;
+			motor[port4] = (vexRT(Ch2)>threshold||vexRT(Ch2)<-threshold)?vexRT(Ch2):0;
+			motor[port5] = (vexRT(Ch2)>threshold||vexRT(Ch2)<-threshold)?vexRT(Ch2):0;
 			if(vexRT[Btn5D]==1)//move left
 			{
 				motor[port2] = 127;
