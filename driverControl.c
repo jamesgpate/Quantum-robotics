@@ -88,7 +88,7 @@ task drivingControl(){
 			displayLCDString(0,0,"Port8:");
 			displayLCDNumber(0,7,motor[port8]);
 			displayLCDString(1,0,"Port9:");
-			displayLCDNumber(0,7,motor[port9]);
+			displayLCDNumber(0,7,motor[hook]);
 		}else if(count2==5){
 			clearLCDLine(0);
 			clearLCDLine(1);

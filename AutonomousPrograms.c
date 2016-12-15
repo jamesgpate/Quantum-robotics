@@ -7,6 +7,8 @@ void callAutonomous(int count){
 		displayLCDCenteredString(0, "Turn Left");
 		displayLCDCenteredString(1, "is running!");
 		//
+		motor[hook]=127;
+		wait1Msec(100);
 		goForward(350);
 		//
 		turnLeft(150);
@@ -17,6 +19,8 @@ void callAutonomous(int count){
 		displayLCDCenteredString(0, "Turn Right");
 		displayLCDCenteredString(1, "is running!");
 		//
+		motor[hook]=127;
+		wait1Msec(100);
 		goForward(350);
 		//
 		turnRight(150);
@@ -26,6 +30,8 @@ void callAutonomous(int count){
 	case 2:
 		displayLCDCenteredString(0, "Fence Left");
 		displayLCDCenteredString(1, "is running!");
+		motor[hook]=127;
+		wait1Msec(100);
 		goForward(500);
 		//
 		turnLeft(200);
@@ -35,6 +41,8 @@ void callAutonomous(int count){
 	case 3:
 		displayLCDCenteredString(0, "Fence Right");
 		displayLCDCenteredString(1, "is running!");
+		motor[hook]=127;
+		wait1Msec(100);
 		goForward(500);
 		//
 		turnRight(200);
