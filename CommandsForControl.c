@@ -1,5 +1,22 @@
 #include "TheUltimateFile.c";
 #include "config.h"
+/*
+    This file is part of the Quantum Robotics robot code.
+
+    The Quantum Robotics robot code is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    The Quantum Robotics robot code is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with the Quantum Robotics robot code.  If not, see <http://www.gnu.org/licenses/>.
+*/
+//Please give credit if you are using this
 void goForward(int timeInMS){//for going forward for a certain amount of time
 	motor[frontRight] = -127;
 	motor[backRight] =  127;
