@@ -42,7 +42,6 @@
 //init for motors, sensors, etc
 #pragma platform(VEX2)
 #pragma competitionControl(Competition)
-#include "config.h"
 #include "Vex_Competition_Includes.c"
 #include "AutonomousPrograms.c";//include auton program
 #include "driverControl.c";//include driver program

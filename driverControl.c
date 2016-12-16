@@ -1,5 +1,4 @@
 #include "TheUltimateFile.c";
-#include "config.h"
 /*
     This file is part of the Quantum Robotics robot code.
 
@@ -125,10 +124,10 @@ task drivingControl(){
 			motor[arm1]=-127;
 			motor[arm2]=-127;
 			motor[arm3]=-127;
-		}if(vexRT[Btn6U]==1){//arm half speed
-			motor[arm1]=-63;
-			motor[arm2]=-63;
-			motor[arm3]=-63;
+		}if(vexRT[Btn6U]==1){//arm backwards
+			motor[arm1]=127;
+			motor[arm2]=127;
+			motor[arm3]=127;
 		}else if((vexRT[Btn5U]==0&&vexRT[Btn6U]==0)){//arm no speed
 			motor[arm1]=0;
 			motor[arm2]=0;

@@ -1,5 +1,4 @@
 #include "TheUltimateFile.c";
-#include "config.h"
 #include "CommandsForControl.c";
 /*
     This file is part of the Quantum Robotics robot code.
