@@ -25,9 +25,10 @@ void callAutonomous(int count){
 		//
 		motor[hook]=127;
 		wait1Msec(100);
-		goForward(350);
+		motor[hook]=0;
+		goForward(500);
 		//
-		turnLeft(150);
+		turnLeft(250);
 		//
 		goForward(3500);
 		break;
@@ -37,9 +38,10 @@ void callAutonomous(int count){
 		//
 		motor[hook]=127;
 		wait1Msec(100);
-		goForward(350);
+		motor[hook]=0;		
+		goForward(500);
 		//
-		turnRight(150);
+		turnRight(250);
 		//
 		goForward(3500);
 		break;
@@ -48,7 +50,8 @@ void callAutonomous(int count){
 		displayLCDCenteredString(1, "is running!");
 		motor[hook]=127;
 		wait1Msec(100);
-		goForward(500);
+		motor[hook]=0;
+		goForward(1000);
 		//
 		turnLeft(200);
 		//
@@ -59,7 +62,8 @@ void callAutonomous(int count){
 		displayLCDCenteredString(1, "is running!");
 		motor[hook]=127;
 		wait1Msec(100);
-		goForward(500);
+		motor[hook]=0;
+		goForward(1000);
 		//
 		turnRight(200);
 		//
@@ -70,9 +74,10 @@ void callAutonomous(int count){
 		//
 		motor[hook]=127;
 		wait1Msec(100);
-		goForward(350);
+		motor[hook]=0;
+		goForward(500);
 		//
-		turnLeft(150);
+		turnLeft(250);
 		//
 		goForward(3500);
 		break;
