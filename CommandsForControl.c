@@ -26,6 +26,7 @@ void goForward(int timeInMS){//for going forward for a certain amount of time
 	motor[backRight] =  0;
 	motor[frontLeft] = 0;
 	motor[backLeft] =  0;
+	return;
 }
 void goBackwards(int timeInMS){//for going backwards
 	motor[frontRight] = -127;
@@ -37,6 +38,7 @@ void goBackwards(int timeInMS){//for going backwards
 	motor[backRight] =  0;
 	motor[frontLeft] = 0;
 	motor[backLeft] =  0;
+	return;
 }
 void turnLeft(int timeInMS){//for going left
 	motor[frontRight] = -127;
@@ -48,6 +50,7 @@ void turnLeft(int timeInMS){//for going left
 	motor[backRight] =  0;
 	motor[frontLeft] = 0;
 	motor[backLeft] =  0;
+	return;
 }
 void turnRight(int timeInMS){//for going right
 	motor[frontRight] = 127;
@@ -59,4 +62,5 @@ void turnRight(int timeInMS){//for going right
 	motor[backRight] =  0;
 	motor[frontLeft] = 0;
 	motor[backLeft] =  0;
+	return;
 }
