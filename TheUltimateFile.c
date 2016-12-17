@@ -130,7 +130,7 @@ void pre_auton()//select auton program
 			}
 			else if(nLCDButtons == rightButton){
 				waitForRelease();
-				count++;
+				count=0;
 			}
 			break;
 		}
