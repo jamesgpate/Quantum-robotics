@@ -1,5 +1,4 @@
 #include "mainfile.c"
-#include "byteConverter.c"
 /*
 This file is part of the Quantum Robotics robot code.
 
@@ -17,27 +16,22 @@ You should have received a copy of the GNU General Public License
 along with the Quantum Robotics robot code.  If not, see <http://www.gnu.org/licenses/>.
 */
 //Please give credit if you are using this
-int ledBits[8] = {0,0,0,0,0,0,0,0};
-task driving()
-{
-	while(true){
-		motor[m2]=vexRT[Ch3];
-		motor[m5]=vexRT[Ch3];
-		motor[m6]=vexRT[Ch3];
-		motor[m9]=vexRT[Ch3];
-		motor[m3]=vexRT[Ch2];
-		motor[m4]=vexRT[Ch2];
-		motor[m7]=vexRT[Ch2];
-		motor[m8]=vexRT[Ch2];
-		byteToBits(m2);
-		SensorValue[d1]=ledBits[0];
-		SensorValue[d2]=ledBits[1];
-		SensorValue[d3]=ledBits[2];
-		SensorValue[d4]=ledBits[3];
-		SensorValue[d5]=ledBits[4];
-		SensorValue[d6]=ledBits[5];
-		SensorValue[d7]=ledBits[6];
-		SensorValue[d8]=ledBits[7];
-
-	}
+task doAuton(){
+	motor[m2]=127;
+	motor[m5]=127;
+	motor[m6]=127;
+	motor[m9]=127;
+	motor[m3]=127;
+	motor[m4]=127;
+	motor[m7]=127;
+	motor[m8]=127;
+	wait1Msec(1500);
+	motor[m2]=0;
+	motor[m5]=0;
+	motor[m6]=0;
+	motor[m9]=0;
+	motor[m3]=0;
+	motor[m4]=0;
+	motor[m7]=0;
+	motor[m8]=0;	
 }
