@@ -3,7 +3,7 @@ This repo is the official repo for CSHS Quantum Robotics. **Please feel free to 
 ## Compiling and downloading
 Download all of the files to one directory, then compile ```TheUltimateFile.c``` in ROBOTC. Download to robot.
 Make sure you are in super user window mode ```(Window>Menu Level>Super user)``` 
-###**Code Version 1.0.0** 
+###**Code Version 2.0.2** 
 ##MD5s for files
 ###Magnus
 a988e9ff075123a6e62cdcf61ae331ba  auton.c  
