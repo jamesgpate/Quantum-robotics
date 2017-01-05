@@ -29,7 +29,7 @@ task driving()
 		motor[m4]=vexRT[Ch2];
 		motor[m7]=vexRT[Ch2];
 		motor[m8]=vexRT[Ch2];
-		byteToBits(m2);
+		byteToBits(motor[m2]);
 		SensorValue[d1]=ledBits[0];
 		SensorValue[d2]=ledBits[1];
 		SensorValue[d3]=ledBits[2];
@@ -38,6 +38,5 @@ task driving()
 		SensorValue[d6]=ledBits[5];
 		SensorValue[d7]=ledBits[6];
 		SensorValue[d8]=ledBits[7];
-
 	}
 }
