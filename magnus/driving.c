@@ -29,10 +29,10 @@ task driving()
 		motor[m4]=vexRT[Ch2];
 		motor[m7]=vexRT[Ch2];
 		motor[m8]=vexRT[Ch2];
-		if(vexRT[Btn5D]==1) motor[m1]=127;
-		else if(vexRT[Btn5U]==1) motor[m1]=-127;
-		if(vexRT[Btn6D]==1) motor[m10]=127;
-		else if(vexRT[Btn6U]==1) motor[m10]=-127;
+		if(vexRT[Btn6D]==1) motor[m1]=127;
+		else if(vexRT[Btn6U]==1) motor[m1]=-127;
+		if(vexRT[Btn5D]==1) motor[m10]=127;
+		else if(vexRT[Btn5U]==1) motor[m10]=-127;
 		byteToBits(motor[m2]);
 		SensorValue[d1]=ledBits[0];
 		SensorValue[d2]=ledBits[1];
