@@ -20,20 +20,68 @@ along with the Quantum Robotics robot code.  If not, see <http://www.gnu.org/lic
 int ledBits[8] = {0,0,0,0,0,0,0,0};
 task driving()
 {
-	while(true){
+	while(true)
+		{
+
 		motor[m2]=vexRT[Ch3];
-		motor[m5]=vexRT[Ch3];
-		motor[m6]=vexRT[Ch3];
+		motor[m4]=vexRT[Ch3]; //Left Side
 		motor[m9]=vexRT[Ch3];
+
 		motor[m3]=vexRT[Ch2];
-		motor[m4]=vexRT[Ch2];
-		motor[m7]=vexRT[Ch2];
+		motor[m7]=vexRT[Ch2]; //Right Side
 		motor[m8]=vexRT[Ch2];
-		if(vexRT[Btn6D]==1) motor[m1]=127;
-		else if(vexRT[Btn6U]==1) motor[m1]=-127;
-		if(vexRT[Btn5D]==1) motor[m10]=127;
-		else if(vexRT[Btn5U]==1) motor[m10]=-127;
-		byteToBits(motor[m2]);
+
+		if(vexRT[Btn5U]==1)
+		{
+			motor[m6]=95;
+		}
+		else
+		{
+			if(vexRT[Btn5D]==0)
+			{
+				motor[m6]=0;
+			}
+		}
+
+		if(vexRT[Btn5D]==1)
+		{
+			motor[m6]=-95;
+		}
+		else
+		{
+			if(vexRT[Btn5U]==0)
+			{
+				motor[m6]=0;
+			}
+		}
+		if(vexRT[Btn6U]==1)
+		{
+			motor[m5]=95;
+		}
+		else
+		{
+			if(vexRT[Btn6D]==0)
+			{
+				motor[m5]=0;
+			}
+		}
+		if(vexRT[Btn6D]==1)
+		{
+			motor[m5]=-95;
+		}
+		else
+		{
+			if(vexRT[Btn6U]==0)
+			{
+				motor[m5]=0;
+			}
+		}
+
+
+
+
+		byteToBits(m2);
+
 		SensorValue[d1]=ledBits[0];
 		SensorValue[d2]=ledBits[1];
 		SensorValue[d3]=ledBits[2];
@@ -42,5 +90,6 @@ task driving()
 		SensorValue[d6]=ledBits[5];
 		SensorValue[d7]=ledBits[6];
 		SensorValue[d8]=ledBits[7];
+
 	}
 }

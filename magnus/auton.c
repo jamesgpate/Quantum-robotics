@@ -18,20 +18,75 @@ along with the Quantum Robotics robot code.  If not, see <http://www.gnu.org/lic
 //Please give credit if you are using this
 task doAuton(){
 	motor[m2]=127;
-	motor[m5]=127;
-	motor[m6]=127;
-	motor[m9]=127;
-	motor[m3]=127;
 	motor[m4]=127;
+	motor[m9]=127;
+
+	motor[m3]=127;
 	motor[m7]=127;
 	motor[m8]=127;
+
+
 	wait1Msec(1500);
 	motor[m2]=0;
-	motor[m5]=0;
-	motor[m6]=0;
-	motor[m9]=0;
-	motor[m3]=0;
 	motor[m4]=0;
+	motor[m9]=0;
+
+	motor[m3]=0;
 	motor[m7]=0;
-	motor[m8]=0;	
+	motor[m8]=0;
+
+	wait1Msec(250);
+
+	motor[m5]=127;
+	motor[m6]=127;
+
+	wait1Msec(500);
+
+	motor[m2]=-127;
+	motor[m4]=-127;
+	motor[m9]=-127;
+
+	motor[m3]=-127;
+	motor[m7]=-127;
+	motor[m8]=-127;
+
+	wait1Msec(1500);
+
+	motor[m2]=70;
+	motor[m4]=70;
+	motor[m9]=70;
+
+	motor[m3]=-70;
+	motor[m7]=-70;
+	motor[m8]=-70;
+
+	wait1Msec(500);
+
+	motor[m2]=127;
+	motor[m4]=127;
+	motor[m9]=127;
+
+	motor[m3]=127;
+	motor[m7]=127;
+	motor[m8]=127;
+
+	wait1Msec(1000);
+
+	motor[m6]=-60;
+	motor[m5] = -60;
+
+	wait1Msec(1000);
+
+	motor[m2]=0;
+	motor[m4]=0;
+	motor[m9]=0;
+
+	motor[m3]=0;
+	motor[m7]=0;
+	motor[m8]=0;
+
+	motor[m6]=0;
+	motor[m5]=0;
+
+
 }
