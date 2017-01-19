@@ -17,7 +17,7 @@
 #pragma userControlDuration(120)
 
 #include "Vex_Competition_Includes.c"   //Main competition background code...do not modify!
-
+#include "driving.c"
 void pre_auton(){
 
 }
@@ -30,6 +30,6 @@ task autonomous(){
 
 task usercontrol(){
 	while (true){
-
+		startTask(driving);
 	}
 }
