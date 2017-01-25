@@ -24,7 +24,7 @@ task doAuton(){
 	motor[m3]=127;
 	motor[m7]=127;
 	motor[m8]=127;
-	
+
 
 	wait1Msec(1500);
 	motor[m2]=0;
@@ -50,7 +50,7 @@ task doAuton(){
 	motor[m7]=-127;
 	motor[m8]=-127;
 
-	wait1Msec(2250);
+	wait1Msec(2000);
 
 	motor[m2]=70;
 	motor[m4]=70;
@@ -60,7 +60,7 @@ task doAuton(){
 	motor[m7]=-70;
 	motor[m8]=-70;
 
-	wait1Msec(685);
+	wait1Msec(700);
 
 	motor[m2]=127;
 	motor[m4]=127;

@@ -45,7 +45,7 @@ along with the Quantum Robotics robot code.  If not, see <http://www.gnu.org/lic
 //Please give credit if you are using this
 void pre_auton()
 {
-  bStopTasksBetweenModes = true;
+	bStopTasksBetweenModes = true;
 }
 task autonomous()
 {
