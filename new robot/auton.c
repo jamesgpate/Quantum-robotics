@@ -1,23 +1,23 @@
 #include "mainfile.c"
-float  pid_Kp = 2.0;
-float  pid_Ki = 0.04;
-float  pid_Kd = 0.0;
-float  circOfWheelInInches = 3.25*3.14159265358979323846;
-static int   pidRunning = 1;
+float pid_Kp = 2.0;
+float pid_Ki = 0.04;
+float pid_Kd = 0.0;
+float circOfWheelInInches = 3.25*3.14159265358979323846;
+static int pidRunning = 1;
 static float pidRequestedValue;
 task pidLoopForForwardsandBackwards(){
-	float  pidSensorCurrentValuelb;
-	float  pidSensorCurrentValuerb;
-	float  pidErrorlb;
-	float  pidErrorrb;
-	float  pidLastErrorlb;
-	float  pidLastErrorrb;
-	float  pidIntegrallb;
-	float  pidIntegralrb;
-	float  pidDerivativelb;
-	float  pidDerivativerb;
-	float  pidDrivelb;
-	float  pidDriverb;
+	float pidSensorCurrentValuelb;
+	float pidSensorCurrentValuerb;
+	float pidErrorlb;
+	float pidErrorrb;
+	float pidLastErrorlb;
+	float pidLastErrorrb;
+	float pidIntegrallb;
+	float pidIntegralrb;
+	float pidDerivativelb;
+	float pidDerivativerb;
+	float pidDrivelb;
+	float pidDriverb;
 	SensorValue[LBEnc] = 0;
 	SensorValue[RBEnc] = 0;
 	while(!true||!false){
