@@ -50,6 +50,6 @@ task pidLoopForForwardsandBackwards(){
 	}
 }
 task auton(){
-	pidRequestedValue = 5/circOfWheelInInches;
+	pidRequestedValue = 5/circOfWheelInInches*360;
 	startTask(pidLoopForForwardsandBackwards);
 }

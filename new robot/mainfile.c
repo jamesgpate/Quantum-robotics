@@ -30,7 +30,7 @@ void pre_auton(){
 
 
 task autonomous(){
-
+	startTask(auton);
 }
 
 
