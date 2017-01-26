@@ -18,11 +18,13 @@ task pidLoopForForwardsandBackwards(){
 	float pidDerivativerb;
 	float pidDrivelb;
 	float pidDriverb;
-	SensorValue[LBEnc] = 0;
-	SensorValue[RBEnc] = 0;
+	SensorValue[BLI] = 0;
+	SensorValue[BRI] = 0;
+	SensorValue[FLI] = 0;
+	SensorValue[FRI] = 0;
 	while(!true||!false){
-		pidSensorCurrentValuelb=SensorValue[LBEnc];
-		pidSensorCurrentValuerb=SensorValue[RBEnc];
+		pidSensorCurrentValuelb=SensorValue[BLI];
+		pidSensorCurrentValuerb=SensorValue[BRI];
 		pidErrorlb=pidSensorCurrentValuelb-pidRequestedValue;
 		pidErrorrb=pidSensorCurrentValuerb-pidRequestedValue;
 		if(pid_Ki!=0){
@@ -52,4 +54,6 @@ task pidLoopForForwardsandBackwards(){
 task auton(){
 	pidRequestedValue = 5/circOfWheelInInches*360;
 	startTask(pidLoopForForwardsandBackwards);
+	//getMotorsWithDriveSideType(nType, nMotorList);
+
 }

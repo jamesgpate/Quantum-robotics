@@ -1,8 +1,10 @@
 #include "mainfile.c"
 task driving(){
 	int c1 = 0, c3 = 0, c4 = 0, threshold = 15;
-	SensorValue[LBEnc] = 0;
-	SensorValue[RBEnc] = 0;
+	SensorValue[BLI] = 0;
+	SensorValue[BRI] = 0;
+	SensorValue[FLI] = 0;
+	SensorValue[FRI] = 0;
 	SensorValue[ArmEnc] = 0;
 	while(true){
 		c1 = vexRT[Ch1];
@@ -11,10 +13,10 @@ task driving(){
 		if(abs(c4)<=threshold) c4 = 0;
 		if(abs(c1)<=threshold) c1 = 0;
 		if(abs(c3)<=threshold) c3 = 0;
-		motor[FL] = c3 + c1 + c4;
-		motor[FR] = -c3 + c1 + c4;
-		motor[BL] = c3 + c1 - c4;
-		motor[BR] = -c3 + c1 - c4;
+		motorReq[FL] = c3 + c1 + c4;
+		motorReq[FR] = -c3 + c1 + c4;
+		motorReq[BL] = c3 + c1 - c4;
+		motorReq[BR] = -c3 + c1 - c4;
 		if(vexRT[Btn5D]==1){
 			motor[L1R1]=127;
 			motor[L2R2]=127;
