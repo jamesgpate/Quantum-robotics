@@ -47,11 +47,13 @@ task pidLoopForForwardsandBackwards(){
 		wait1Msec(25);
 		motor[BL] = motor[FR] = pidDrivelb*-1;
 		motor[BR] = motor[BL] = pidDriverb;
-		if(pidRequestedValue>=pidSensorCurrentValuelb&&pidRequestedValue>=pidSensorCurrentValuelb) pidRunning = false;
+		if(pidRequestedValue>=pidSensorCurrentValuelb&&pidRequestedValue>=pidSensorCurrentValuerb) pidRunning = false;
+		wait1Msec(20);
 	}
 }
 task auton(){
 	pidRequestedValue = (24/(circOfWheelInInches)*360);
 	//startTask(pidLoopForForwardsandBackwards);
 	//getMotorsWithDriveSideType(nType, nMotorList);
+	if(pidSensorCurrentValuelb)
 }
