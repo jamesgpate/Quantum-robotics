@@ -3,7 +3,7 @@ float pid_Kp = 2.0;
 float pid_Ki = 0.04;
 float pid_Kd = 0.0;
 float circOfWheelInInches = 3.25*3.14159265358979323846;
-static int pidRunning = 1;
+static bool pidRunning = true;
 static float pidRequestedValue;
 task pidLoopForForwardsandBackwards(){
 	float pidSensorCurrentValuelb;
@@ -47,7 +47,7 @@ task pidLoopForForwardsandBackwards(){
 		wait1Msec(25);
 		motor[BL] = motor[FR] = pidDrivelb*-1;
 		motor[BR] = motor[BL] = pidDriverb;
-		if(pidRequestedValue>=pidSensorCurrentValuelb&&pidRequestedValue>=pidSensorCurrentValuelb) pidRunning = 0;
+		if(pidRequestedValue>=pidSensorCurrentValuelb&&pidRequestedValue>=pidSensorCurrentValuelb) pidRunning = false;
 	}
 }
 task auton(){
