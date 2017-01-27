@@ -6,6 +6,7 @@ task driving(){
 	SensorValue[BRI] = 0;
 	SensorValue[ArmEnc] = 0;
 	startTask(MotorSlewRateTask);
+	startTask(LCDstuff);
 	while(true){
 		c1 = vexRT[Ch1];
 		c3 = vexRT[Ch3];
@@ -49,6 +50,10 @@ task driving(){
 			SensorValue[dgtl1]=0;
 		}
 		if(SensorValue[ArmEnc]>=220) motor[L1R1]=motor[L2R2]=motor[L2R2]=0;
+	}
+}
+task LCDstuff(){
+	while(!false){
 		clearLCDLine(1);
 		clearLCDLine(0);
 		displayNextLCDNumber(SensorValue[ArmEnc]);
@@ -56,5 +61,6 @@ task driving(){
 		displayNextLCDNumber(SensorValue[BRI]);
 		displayNextLCDChar(',');
 		displayNextLCDNumber(SensorValue[BLI]);
+
 	}
 }
