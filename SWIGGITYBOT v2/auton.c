@@ -53,7 +53,7 @@ task pidLoopForForwardsandBackwards(){
 }
 task auton(){
 	pidRequestedValue = (24/(circOfWheelInInches)*360);
-	//startTask(pidLoopForForwardsandBackwards);
+	startTask(pidLoopForForwardsandBackwards);
 	//getMotorsWithDriveSideType(nType, nMotorList);
-	if(pidSensorCurrentValuelb)
+	//if(pidSensorCurrentValuelb)
 }
