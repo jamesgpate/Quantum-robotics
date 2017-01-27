@@ -1,11 +1,11 @@
 #include "mainfile.c"
+extern task MotorSlewRateTask();
 task driving(){
 	int c1 = 0, c3 = 0, c4 = 0, threshold = 15;
 	SensorValue[BLI] = 0;
 	SensorValue[BRI] = 0;
-	SensorValue[FLI] = 0;
-	SensorValue[FRI] = 0;
 	SensorValue[ArmEnc] = 0;
+	startTask(MotorSlewRateTask);
 	while(true){
 		c1 = vexRT[Ch1];
 		c3 = vexRT[Ch3];
@@ -26,17 +26,17 @@ task driving(){
 			motor[L2R2]=-127;
 			motor[L3R3]=-127;
 		}else if(vexRT[Btn8D]==1){
-			motor[L1R1]=30;
-			motor[L2R2]=30;
-			motor[L3R3]=30;
+			motor[L1R1]=-30;
+			motor[L2R2]=-30;
+			motor[L3R3]=-30;
 		}else if(vexRT[Btn8R]==1){
-			motor[L1R1]=60;
-			motor[L2R2]=60;
-			motor[L3R3]=60;
+			motor[L1R1]=-60;
+			motor[L2R2]=-60;
+			motor[L3R3]=-60;
 		}else if(vexRT[Btn8U]==1){
-			motor[L1R1]=90;
-			motor[L2R2]=90;
-			motor[L3R3]=90;
+			motor[L1R1]=-90;
+			motor[L2R2]=-90;
+			motor[L3R3]=-90;
 		}else if(vexRT[Btn6D]==0&&vexRT[Btn5D]==0&&vexRT[Btn8D]==0&&vexRT[Btn8R]==0&&vexRT[Btn8U]==0){
 			motor[L1R1]=0;
 			motor[L2R2]=0;
@@ -49,8 +49,12 @@ task driving(){
 			SensorValue[dgtl1]=0;
 		}
 		if(SensorValue[ArmEnc]>=220) motor[L1R1]=motor[L2R2]=motor[L2R2]=0;
-		clearLCDLine(0);
 		clearLCDLine(1);
-		displayNextLCDNumber(SensorValue[pot1]);
+		clearLCDLine(0);
+		displayNextLCDNumber(SensorValue[ArmEnc]);
+		displayNextLCDChar(',');
+		displayNextLCDNumber(SensorValue[BRI]);
+		displayNextLCDChar(',');
+		displayNextLCDNumber(SensorValue[BLI]);
 	}
 }

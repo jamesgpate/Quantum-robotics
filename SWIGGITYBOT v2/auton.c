@@ -20,8 +20,6 @@ task pidLoopForForwardsandBackwards(){
 	float pidDriverb;
 	SensorValue[BLI] = 0;
 	SensorValue[BRI] = 0;
-	SensorValue[FLI] = 0;
-	SensorValue[FRI] = 0;
 	while(!true||!false){
 		pidSensorCurrentValuelb=SensorValue[BLI];
 		pidSensorCurrentValuerb=SensorValue[BRI];
