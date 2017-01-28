@@ -23,7 +23,7 @@ task driving(){
 			motor[L1R1]=127;
 			motor[L2R2]=127;
 			motor[L3R3]=127;
-		}else	if(vexRT[Btn6D]==1){
+		}else if(vexRT[Btn6D]==1){
 			motor[L1R1]=-127;
 			motor[L2R2]=-127;
 			motor[L3R3]=-127;
