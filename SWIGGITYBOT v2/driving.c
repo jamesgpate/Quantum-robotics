@@ -3,6 +3,9 @@ extern task MotorSlewRateTask();
 extern task LCDstuff();
 task driving(){
 	int c1 = 0, c3 = 0, c4 = 0, threshold = 15;
+	int p1, p2, tick, count2=0;
+	bLCDBacklight = true;
+	string mainBattery, backupBattery;
 	SensorValue[BLI] = 0;
 	SensorValue[BRI] = 0;
 	SensorValue[ArmEnc] = 0;
@@ -51,6 +54,55 @@ task driving(){
 			SensorValue[dgtl1]=0;
 		}
 		if(SensorValue[ArmEnc]>=220) motor[L1R1]=motor[L2R2]=motor[L2R2]=0;
+				if(count2==0){//display battery level
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0, 0, "Primary: ");
+			sprintf(mainBattery, "%1.2f%c", nImmediateBatteryLevel/1000.0,'V');
+			displayNextLCDString(mainBattery);
+			displayLCDString(1, 0, "Backup: ");
+			sprintf(backupBattery, "%1.2f%c", BackupBatteryLevel/1000.0, 'V');
+			displayNextLCDString(backupBattery);
+		}else if(count2==1){//disp ports 2 and 3
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port2:");
+			displayLCDNumber(0,7,motor[port2]);
+			displayLCDString(1,0,"Port3:");
+			displayLCDNumber(1,7,motor[port2]);
+		}else if(count2==2){//disp ports 4 and 5
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port4:");
+			displayLCDNumber(0,7,motor[port4]);
+			displayLCDString(1,0,"Port5:");
+			displayLCDNumber(1,7,motor[port5]);
+		}else if(count2==3){//disp ports 6 and 7
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port6:");
+			displayLCDNumber(0,7,motor[port6]);
+			displayLCDString(1,0,"Port7:");
+			displayLCDNumber(1,7,motor[port7]);
+		}else if(count2==4){//disp ports 8 and 9
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Port8:");
+			displayLCDNumber(0,7,motor[port8]);
+			displayLCDString(1,0,"Port9:");
+			displayLCDNumber(0,7,motor[port9]);
+		}else if(count2==5){//disp exp batt
+			clearLCDLine(0);
+			clearLCDLine(1);
+			displayLCDString(0,0,"Hello :)");
+
+		}
+		tick++;//cycling LCD Info
+		if(tick>=10000){
+			tick=0;
+			count2++;
+		}
+		if(count2==6) count2=0;
 	}
 }
 task LCDstuff(){

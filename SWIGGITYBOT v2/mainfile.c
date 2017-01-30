@@ -35,13 +35,24 @@ int motorSlew[ MOTOR_NUM ];
 #include "Vex_Competition_Includes.c"   //Main competition background code...do not modify!
 #include "driving.c"
 #include "auton.c"
+void waitForPress(){//for auton selection
+	while(nLCDButtons == 0){}
+	wait1Msec(5);
+}
+void waitForRelease(){//for auton selection
+	while(nLCDButtons != 0){}
+	wait1Msec(5);
+}
+const short leftButton = 1;
+const short centerButton = 2;
+const short rightButton = 4;
 void pre_auton(){
 
 }
 
 
 task autonomous(){
-	startTask(auton);
+	startTask(auton4);
 }
 
 
