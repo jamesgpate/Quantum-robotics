@@ -2,26 +2,22 @@
 extern task MotorSlewRateTask();
 extern task LCDstuff();
 task driving(){
-	int c1 = 0, c3 = 0, c4 = 0, threshold = 15;
+	int c2 = 0, c3 = 0, threshold = 15;
 	int p1, p2, tick, count2=0;
 	bLCDBacklight = true;
 	string mainBattery, backupBattery;
 	SensorValue[BLI] = 0;
 	SensorValue[BRI] = 0;
 	SensorValue[ArmEnc] = 0;
-	startTask(MotorSlewRateTask);
+	//startTask(MotorSlewRateTask);
 	startTask(LCDstuff);
 	while(true){
-		c1 = vexRT[Ch1];
+		c2 = vexRT[Ch2];
 		c3 = vexRT[Ch3];
-		c4 = vexRT[Ch4];
-		if(abs(c4)<=threshold) c4 = 0;
-		if(abs(c1)<=threshold) c1 = 0;
+		if(abs(c2)<=threshold) c2 = 0;
 		if(abs(c3)<=threshold) c3 = 0;
-		motor[FL] = c3 + c1 + c4;
-		motor[FR] = -c3 + c1 + c4;
-		motor[BL] = c3 + c1 - c4;
-		motor[BR] = -c3 + c1 - c4;
+		motor[FR]=motor[BR]=-c2;
+		motor[FL]=motor[BL]=c3;
 		if(vexRT[Btn5D]==1){
 			motor[L1R1]=127;
 			motor[L2R2]=127;
