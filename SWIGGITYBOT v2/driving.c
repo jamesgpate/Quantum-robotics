@@ -46,7 +46,7 @@ task driving(){
 		if(vexRT[Btn6U]==1){
 			SensorValue[dgtl1]=1;
 		}
-		if(vexRT[Btn6U]==0){
+		if(vexRT[Btn5U]==1){
 			SensorValue[dgtl1]=0;
 		}
 		if(SensorValue[ArmEnc]>=220) motor[L1R1]=motor[L2R2]=motor[L2R2]=0;
